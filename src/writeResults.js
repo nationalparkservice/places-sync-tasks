@@ -8,6 +8,6 @@ module.exports = {
     return report('failure', message);
   },
   'success': function (message) {
-    return report('success', JSON.stringify(message[message.length-1], null, 2));
+    return report('success', '', JSON.stringify(message[message.length-1], null, 2));
   }
 };
