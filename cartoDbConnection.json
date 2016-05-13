@@ -1,0 +1,5 @@
+{
+  "type": "cartodb",
+  "account": "file://{{secrets}}/cartodbAccount",
+  "apiKey": "file://{{secrets}}/cartodbApiKey"
+}
