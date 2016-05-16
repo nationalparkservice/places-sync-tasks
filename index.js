@@ -1,4 +1,4 @@
-var buildConfig = require('./src/buildConfig');
+var buildConnection = require('./src/buildConnection');
 var cartodbConnection = require('./cartoDbConnection');
 var configsToTasks = require('./src/configsToTasks');
 var databases = require('./node_modules/places-sync/node_modules/places-sync-sources/node_modules/places-sync-databases/'); // TODO: Add this to the package instead
@@ -25,7 +25,7 @@ var taskList = [{
 }, {
   'name': 'parsedConfigs',
   'description': 'Created Config files for all the valid tasks',
-  'task': buildConfig,
+  'task': buildConnection,
   'params': ['{{taskList}}']
 }, {
   'name': 'syncTasks',
