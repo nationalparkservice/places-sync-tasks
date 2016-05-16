@@ -1,4 +1,4 @@
-var readSource = require('readSource');
+var readSource = require('./readSource');
 
 module.exports = function (configList) {
   var configs = [];
