@@ -1,7 +1,7 @@
-var iterateTapeTasks = require('../node_modules/places-sync/src/tools/iterateTapeTasks');
-var requireDirectory = require('../node_modules/places-sync/src/tools/requireDirectory');
+var iterateTapeTasks = require('jm-tools').iterateTapeTasks;
+var requireDirectory = require('jm-tools').requireDirectory;
 
-var tests = requireDirectory('./', 'index.js');
+var tests = requireDirectory('./test', 'index.js');
 var mainTaskList = [];
 
 for (var test in tests) {
