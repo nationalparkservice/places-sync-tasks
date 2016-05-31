@@ -7,7 +7,8 @@ var iterateTasks = require('jm-tools').iterateTasks;
 var parseConnection = require('./src/parseConnection');
 var path = require('path');
 var write = require('./src/writeResults');
-var sql = fs.readFileSync(path.join(__dirname, 'sql', 'taskQuery.sql'), 'UTF8').toString();
+var getTasksSql = fs.readFileSync(path.join(__dirname, 'sql', 'getTasks.sql'), 'UTF8').toString();
+var updateProcessStatusSql = fs.readFileSync(path.join(__dirname, 'sql', 'updateProcessStatus.sql'), 'UTF8').toString();
 
 var taskList = [{
   'name': 'createDbConnection',
@@ -21,7 +22,7 @@ var taskList = [{
   'name': 'taskList',
   'description': 'Read the tasks that need to be run from cartodb',
   'task': '{{createDbConnection.query}}',
-  'params': [sql]
+  'params': [getTasksSql]
 }, {
   'name': 'parsedConfigs',
   'description': 'Created Config files for all the valid tasks',
@@ -31,7 +32,7 @@ var taskList = [{
   'name': 'syncTasks',
   'description': 'creates each of the sync tasks',
   'task': configsToTasks,
-  'params': ['{{parsedConfigs}}']
+  'params': ['{{parsedConfigs}}', '{{createDbConnection}}', updateProcessStatusSql]
 }, {
   'name': 'runSyncs',
   'description': 'runs each of the sync tasks',
