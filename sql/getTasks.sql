@@ -33,4 +33,5 @@ SELECT
 FROM
   "sync_tasks"
 WHERE
+  (EXTRACT(EPOCH FROM NOW()-"last_sync")/3600 > "frequency" OR "last_sync" is null) AND
   "enabled" = true;
