@@ -7,7 +7,7 @@ module.exports = function (configs, connection, updateSql) {
       'name': 'Sync ' + config.processName,
       'description': 'Syncing source: ' + config.source.name + ' to ' + config.destination.name,
       'task': sync,
-      'params': [config.master, config.source, config.destination, config.twoWay]
+      'params': [config.master, config.source, config.destination, config.options]
     });
     returnArray.push({
       'name': 'Update Status ' + config.processName,
