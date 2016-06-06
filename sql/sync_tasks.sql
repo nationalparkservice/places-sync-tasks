@@ -7,7 +7,7 @@ CREATE TABLE
   "source" text,
   "destination" text,
   "frequency" number,
-  "two_way" boolean,
+  "options" text,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "last_sync" TIMESTAMPTZ,
