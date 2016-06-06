@@ -1,6 +1,6 @@
 SELECT
   "process",
-  "two_way",
+  "options",
   "frequency",
   "last_sync",
   (SELECT row_to_json("_") FROM (
