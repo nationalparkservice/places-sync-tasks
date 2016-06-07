@@ -8,6 +8,7 @@ module.exports = function (source) {
     newSource = JSON.parse(typeof source === 'string' ? source : JSON.stringify(source));
     returnSource.name = newSource.source_name;
     returnSource.connection = parseConnection(newSource.connection);
+    returnSource.filter = nullToUndefined(JSON.parse(newSource.filter));
     returnSource.fields = {
       'data': nullToUndefined(newSource.field_data),
       'forced': nullToUndefined(newSource.field_forced),
