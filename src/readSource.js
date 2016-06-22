@@ -18,6 +18,7 @@ module.exports = function (source) {
       'primaryKey': nullToUndefined(newSource.field_primary_key),
       'removed': nullToUndefined(newSource.field_removed),
       'removedValue': nullToUndefined(newSource.field_removed_value),
+      'osm_translation': nullToUndefined(JSON.parse(newSource.translation)),
       'transforms': nullToUndefined(JSON.parse(newSource.transforms))
     };
     return returnSource;
