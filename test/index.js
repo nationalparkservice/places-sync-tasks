@@ -1,9 +1,12 @@
-var iterateTapeTasks = require('jm-tools').iterateTapeTasks;
-var requireDirectory = require('jm-tools').requireDirectory;
+var tools = require('jm-tools');
+var iterateTapeTasks = tools.iterateTapeTasks;
+var requireDirectory = tools.requireDirectory;
+var args = process.argv.slice(2);
 
-var tests = requireDirectory('./test', 'index.js');
+var tests = requireDirectory(__dirname, 'index.js', args.length ? args : null);
 var mainTaskList = [];
 
+console.log(tests);
 for (var test in tests) {
   tests[test].forEach(function (test) {
     mainTaskList.push(test);
