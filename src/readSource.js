@@ -9,6 +9,7 @@ module.exports = function (source) {
     returnSource.name = newSource.source_name;
     returnSource.connection = parseConnection(newSource.connection);
     returnSource.filter = nullToUndefined(JSON.parse(newSource.filter));
+    returnSource.translation = nullToUndefined(newSource.osm_translation);
     returnSource.fields = {
       'data': nullToUndefined(newSource.field_data),
       'forced': nullToUndefined(newSource.field_forced),
@@ -18,7 +19,6 @@ module.exports = function (source) {
       'primaryKey': nullToUndefined(newSource.field_primary_key),
       'removed': nullToUndefined(newSource.field_removed),
       'removedValue': nullToUndefined(newSource.field_removed_value),
-      'osm_translation': nullToUndefined(JSON.parse(newSource.translation)),
       'transforms': nullToUndefined(JSON.parse(newSource.transforms))
     };
     return returnSource;
