@@ -8,7 +8,10 @@ var iterateTasksLight = module.exports = function (list, taskName, verbose, erro
         return iterateTasksLight(list.slice(1), taskName, verbose, errorArray);
       }).then(function () {
         resolve();
-      }).catch(reject);
+      }).catch(function (e) {
+        console.log('ERROR, ', e);
+        reject(e);
+      });
     } else {
       resolve();
     }
