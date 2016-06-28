@@ -11,7 +11,7 @@ module.exports = function (configList) {
 
   configList.forEach(function (config) {
     var newConfig = JSON.parse(JSON.stringify(configTemplate));
-    var processName = config.process;
+    var processName = config.name;
     newConfig.processName = processName;
     try {
       newConfig.options = config.options ? JSON.parse(config.options) : false;
