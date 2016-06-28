@@ -1,6 +1,6 @@
 UPDATE
-  "sync_tasks"
+  "places_sync_tasks"
 SET
   "last_sync" = NOW()
 WHERE
-  "process" = {{processName}};
+  "name" = {{processName}};
