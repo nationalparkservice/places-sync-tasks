@@ -16,7 +16,7 @@ module.exports = function (config) {
   var hasSecrets = new RegExp('^file:///?{{secrets}}/?', 'i');
   var fileName;
   for (var field in newConfig) {
-    if (newConfig[field].match(hasSecrets)) {
+    if (newConfig[field].match && newConfig[field].match(hasSecrets)) {
       fileName = newConfig[field].replace(hasSecrets, '');
       newConfig[field] = fs.readFileSync(path.join(secretsDir, fileName)).toString().replace(/\n$/, '');
     }
