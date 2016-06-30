@@ -3,8 +3,7 @@ var cartodbConnection = require('./cartoDbConnection');
 var configsToTasks = require('./src/configsToTasks');
 var databases = require('./node_modules/places-sync/node_modules/places-sync-sources/node_modules/places-sync-databases/'); // TODO: Add this to the package instead
 var fs = require('fs');
-var iterateTasks = require('jm-tools').iterateTasks;
-// var iterateTasksLight = require('./src/iterateTasksLight');
+var iterateTasksLight = require('jm-tools').iterateTasksLight;
 var parseConnection = require('./src/parseConnection');
 var path = require('path');
 var updateProcessStatusSql = fs.readFileSync(path.join(__dirname, 'sql', 'updateProcessStatus.sql'), 'UTF8').toString();
@@ -37,10 +36,10 @@ var taskList = [{
 }, {
   'name': 'runSyncs',
   'description': 'runs each of the sync tasks',
-  'task': iterateTasks,
+  'task': iterateTasksLight,
   'params': ['{{syncTasks}}', 'Run Syncs']
 }];
 
-iterateTasks(taskList, 'Load Tasks')
+iterateTasksLight(taskList, 'Load Tasks')
   .then(write.success)
   .catch(write.failure);
