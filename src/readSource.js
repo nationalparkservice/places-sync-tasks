@@ -17,6 +17,7 @@ module.exports = function (source) {
       'lastUpdated': nullToUndefined(newSource.field_last_updated),
       'mapped': nullToUndefined(JSON.parse(newSource.field_mapped)),
       'primaryKey': nullToUndefined(newSource.field_primary_key),
+      'foreignKey': nullToUndefined(newSource.field_foreign_key),
       'removed': nullToUndefined(newSource.field_removed),
       'removedValue': nullToUndefined(newSource.field_removed_value),
       'transforms': nullToUndefined(JSON.parse(newSource.transforms))
