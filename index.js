@@ -10,6 +10,8 @@ var updateProcessStatusSql = fs.readFileSync(path.join(__dirname, 'sql', 'update
 var write = require('./src/writeResults');
 var getTasksSql = fs.readFileSync(path.join(__dirname, 'sql', 'getTasks.sql'), 'UTF8').toString();
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+
 var taskList = [{
   'name': 'createDbConnection',
   'description': 'Connects to the CartoDB Database',
