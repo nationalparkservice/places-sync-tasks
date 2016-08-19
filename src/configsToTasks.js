@@ -1,7 +1,6 @@
 var sync = require('places-sync');
 
 var syncWrap = function (config, connection, updateSql, updateErrorSql) {
-  console.log(updateSql);
   return sync(config.master, config.source, config.destination, config.options).then(function () {
     return connection.query(updateSql, config);
   }).catch(function (e) {
