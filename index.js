@@ -7,6 +7,7 @@ var iterateTasksLight = require('jm-tools').iterateTasksLight;
 var parseConnection = require('./src/parseConnection');
 var path = require('path');
 var updateProcessStatusSql = fs.readFileSync(path.join(__dirname, 'sql', 'updateProcessStatus.sql'), 'UTF8').toString();
+var updateProcessErrorSql = fs.readFileSync(path.join(__dirname, 'sql', 'updateProcessError.sql'), 'UTF8').toString();
 var write = require('./src/writeResults');
 var getTasksSql = fs.readFileSync(path.join(__dirname, 'sql', 'getTasks.sql'), 'UTF8').toString();
 
@@ -34,7 +35,7 @@ var taskList = [{
   'name': 'syncTasks',
   'description': 'creates each of the sync tasks',
   'task': configsToTasks,
-  'params': ['{{parsedConfigs}}', '{{createDbConnection}}', updateProcessStatusSql]
+  'params': ['{{parsedConfigs}}', '{{createDbConnection}}', updateProcessStatusSql, updateProcessErrorSql]
 }, {
   'name': 'runSyncs',
   'description': 'runs each of the sync tasks',
