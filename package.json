@@ -7,7 +7,7 @@
     "email": "nate_irwin@nps.gov"
   }],
   "dependencies": {
-    "bluebird": "3.4.1",
+    "bluebird": "3.4.3",
     "jm-tools": "git+https://github.com/jimmyrocks/jm-tools",
     "places-sync": "git+https://github.com/nationalparkservice/places-sync"
   },
