@@ -1,7 +1,7 @@
 var buildConnection = require('./src/buildConnection');
 var cartodbConnection = require('./cartoDbConnection');
 var configsToTasks = require('./src/configsToTasks');
-var databases = require('./node_modules/places-sync/node_modules/places-sync-databases/'); // TODO: Add this to the package instead
+var databases = require('places-sync-databases');
 var fs = require('fs');
 var iterateTasksLight = require('jm-tools').iterateTasksLight;
 var parseConnection = require('./src/parseConnection');
