@@ -1,7 +1,7 @@
 var buildConnection = require('./src/buildConnection');
 var cartodbConnection = require('./cartoDbConnection');
 var configsToTasks = require('./src/configsToTasks');
-var databases = require('./node_modules/places-sync/node_modules/places-sync-sources/node_modules/places-sync-databases/'); // TODO: Add this to the package instead
+var databases = require('./node_modules/places-sync/node_modules/places-sync-databases/'); // TODO: Add this to the package instead
 var fs = require('fs');
 var iterateTasksLight = require('jm-tools').iterateTasksLight;
 var parseConnection = require('./src/parseConnection');
@@ -10,8 +10,6 @@ var updateProcessStatusSql = fs.readFileSync(path.join(__dirname, 'sql', 'update
 var updateProcessErrorSql = fs.readFileSync(path.join(__dirname, 'sql', 'updateProcessError.sql'), 'UTF8').toString();
 var write = require('./src/writeResults');
 var getTasksSql = fs.readFileSync(path.join(__dirname, 'sql', 'getTasks.sql'), 'UTF8').toString();
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 var taskList = [{
   'name': 'createDbConnection',
