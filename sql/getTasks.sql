@@ -7,31 +7,31 @@ SELECT
       SELECT
         *
       FROM
-        "places_sync_sources"
+        "park_tiles_sync_sources"
       WHERE
-        "places_sync_sources"."cartodb_id" = "places_sync_tasks"."master"
+        "park_tiles_sync_sources"."cartodb_id" = "park_tiles_sync_tasks"."master"
     ) AS "_"
   )::text AS "master",
   (SELECT row_to_json("_") FROM (
       SELECT
         *
       FROM
-        "places_sync_sources"
+        "park_tiles_sync_sources"
       WHERE
-        "places_sync_sources"."cartodb_id" = "places_sync_tasks"."source"
+        "park_tiles_sync_sources"."cartodb_id" = "park_tiles_sync_tasks"."source"
     ) AS "_"
   )::text AS "source",
   (SELECT row_to_json("_") FROM (
       SELECT
         *
       FROM
-        "places_sync_sources"
+        "park_tiles_sync_sources"
       WHERE
-        "places_sync_sources"."cartodb_id" = "places_sync_tasks"."destination"
+        "park_tiles_sync_sources"."cartodb_id" = "park_tiles_sync_tasks"."destination"
     ) AS "_"
   )::text AS "destination"
 FROM
-  "places_sync_tasks"
+  "park_tiles_sync_tasks"
 WHERE
   (EXTRACT(EPOCH FROM NOW()-"last_sync")/60 > "frequency_in_minutes" OR "last_sync" is null) AND
   "enabled" = true;
