@@ -1,18 +1,25 @@
 {
-  "contributors": [{
-    "name": "Jim McAndrew",
-    "email": "james_mcandrew@partner.nps.gov"
-  }, {
-    "name": "Nate Irwin",
-    "email": "nate_irwin@nps.gov"
-  }],
+  "contributors": [
+    {
+      "name": "Jim McAndrew",
+      "email": "james_mcandrew@partner.nps.gov"
+    },
+    {
+      "name": "Nate Irwin",
+      "email": "nate_irwin@nps.gov"
+    }
+  ],
   "dependencies": {
     "bluebird": "3.5.1",
     "jm-tools": "git+https://github.com/jimmyrocks/jm-tools",
     "places-sync": "git+https://github.com/nationalparkservice/places-sync"
   },
   "description": "A node app that synchronizes data from multiple sources to the Places database.",
-  "keywords": ["nps", "postgres", "cartodb"],
+  "keywords": [
+    "nps",
+    "postgres",
+    "cartodb"
+  ],
   "author": "Jim McAndrew <james_mcandrew@partner.nps.gov>",
   "license": "Public Domain",
   "main": "index.js",
